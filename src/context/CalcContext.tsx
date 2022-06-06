@@ -10,7 +10,7 @@ export const CalcContext = createContext<any>({});
 export const ContextProvider = ({children}:Props) => {
 
     const initialState = {
-        currentOperand : '0',
+        currentOperand : '',
         previousOperand: '',
         operation: '',
         overwrite: false

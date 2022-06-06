@@ -1,11 +1,11 @@
-import React,{useContext} from 'react'
+import React,{useContext,FC} from 'react'
 import { CalcContext } from '../context/CalcContext'
 
-type Props = {
+type TDigitButtonProps = {
     digit: string
 }
 
-const DigitButton = ({digit}: Props) => {
+const DigitButton: FC<TDigitButtonProps> = ({digit}) => {
     
   const {addDigit} = useContext(CalcContext);
 
@@ -14,4 +14,4 @@ const DigitButton = ({digit}: Props) => {
   )
 }
 
-export default DigitButton
+export default DigitButton;

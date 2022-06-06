@@ -1,13 +1,13 @@
-import React,{useContext} from 'react'
+import React,{useContext,FC} from 'react'
 import { CalcContext } from '../context/CalcContext'
 
-type Props = {
+type TOperationButtonProps = {
     operation:string
 }
 
-const OperationButton = ({operation}: Props) => {
+const OperationButton:FC<TOperationButtonProps> = ({operation}) => {
 
-    const {chooseOperation} = useContext(CalcContext);
+  const {chooseOperation} = useContext(CalcContext);
 
   return (
     <button onClick={()=>chooseOperation(operation)}>{operation}</button>

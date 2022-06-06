@@ -1,16 +1,16 @@
 import {ActionType} from '../types/';
-import {evaluate} from '..//helper';
+import { evaluate } from '../helper';
 
 interface Icalc {
   currentOperand : string,
   previousOperand: string,
   operation: string,
   overwrite: boolean
-}
+};
 
 export const reducer = (state: Icalc, {type,payload}: ActionType) => {
     switch (type) {
-      case 'add-digit':
+      case "add-digit":
         if(state.overwrite) {
           return {
             ...state,
@@ -26,7 +26,7 @@ export const reducer = (state: Icalc, {type,payload}: ActionType) => {
           ...state,
           currentOperand: `${state.currentOperand || ""}${payload.digit}`
         };
-      case 'choose-operation':
+      case "choose-operation":
         if(state.currentOperand.length===0 && state.previousOperand.length===0) return state; 
         // With this you can switch operations before adding other operand.
         if(state.currentOperand.length===0){

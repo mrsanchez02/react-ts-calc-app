@@ -1,5 +1,4 @@
 export const evaluate = (currentOperand:string,previousOperand:string,operation:string):string => {
-    console.log(`${previousOperand} & ${currentOperand}`);
     const prev = parseFloat(previousOperand);
     const current = parseFloat(currentOperand);
     if(isNaN(prev)||isNaN(current)) return "";
@@ -21,3 +20,14 @@ export const evaluate = (currentOperand:string,previousOperand:string,operation:
     }
     return computation.toString();
   }
+
+  const INTEGER_FORMATER = new Intl.NumberFormat("en-us",{
+    maximumFractionDigits: 0,
+  })
+  
+  export function formatOperand(operand:string) {
+    if(operand.length===0) return
+    const [integer, decimal] = operand.split('.');
+    if(typeof(decimal)==='undefined') return INTEGER_FORMATER.format(Number(integer)).toString();
+    return `${INTEGER_FORMATER.format(Number(integer)).toString()}.${decimal}`
+  }  
